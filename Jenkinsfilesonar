@@ -11,11 +11,11 @@ pipeline {
         stage ('install Stage') {
             steps
                 {   
-                    withSonarQubeEnv(credentialsId: 'sonarlocal') 
+                    withSonarQubeEnv(credentialsId: 'sonar') 
                         {
                             withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
                             {
-                                sh 'clean mvn install sonar:sonar'
+                                sh 'mvn install sonar:sonar'
                              }
                         }
                   }                                 
